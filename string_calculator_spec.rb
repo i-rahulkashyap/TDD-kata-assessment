@@ -31,9 +31,25 @@ RSpec.describe StringCalculator do
     end
 
     context 'when given multiple numbers separated by new lines' do
-        it 'returns the sum of all numbers' do
+        it 'example1: returns the sum of all numbers' do
           calculator = StringCalculator.new
           expect(calculator.add("1\n2\n3")).to eq(6)
+        end
+
+        it 'example2: returns the sum of all numbers' do
+            calculator = StringCalculator.new
+            expect(calculator.add("1,3\n3")).to eq(7)
+        end
+        it 'example3: returns the sum one number and new line' do
+            calculator = StringCalculator.new
+            expect(calculator.add("1\n")).to eq(1)
+          end
+    end
+
+    context 'when given a custom delimiter' do
+        it 'returns the sum of all numbers' do
+          calculator = StringCalculator.new
+          expect(calculator.add("//;\n1;2")).to eq(3)
         end
     end
 
