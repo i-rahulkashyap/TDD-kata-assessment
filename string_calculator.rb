@@ -14,12 +14,13 @@ class StringCalculator
       end
       
       numbers_array = numbers.split(/[\n#{delimiter}]/).map(&:to_i)
+      numbers_array.reject! { |n| n > 1000 }
+      
       negatives = numbers_array.select { |n| n < 0 }
       raise "negative numbers not allowed #{negatives.join(', ')}" if negatives.any?
   
       numbers_array.sum
     end
-    
     def get_called_count
       @add_called_count
     end

@@ -59,6 +59,13 @@ RSpec.describe StringCalculator do
           expect { calculator.add('1,-2,3,-4') }.to raise_error(RuntimeError, 'negative numbers not allowed -2, -4')
         end
     end
+
+    context 'when given numbers larger than 1000' do
+        it 'ignores numbers larger than 1000' do
+          calculator = StringCalculator.new
+          expect(calculator.add('1001,2')).to eq(2)
+        end
+    end
   end
 
   describe '#get_called_count' do
