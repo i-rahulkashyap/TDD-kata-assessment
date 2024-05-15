@@ -22,5 +22,13 @@ RSpec.describe StringCalculator do
         end
     end
 
+
+    context 'when given multiple numbers' do
+        it 'returns the sum of all numbers' do
+          calculator = StringCalculator.new
+          expect(calculator.add('1,2,3,4,5')).to eq(15)
+        end
+      end
+
   end
 end
