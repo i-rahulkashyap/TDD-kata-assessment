@@ -10,7 +10,7 @@ class StringCalculator
     
     numbers_array = numbers.split(/[\n#{delimiter}]/).map(&:to_i)
     negatives = numbers_array.select { |n| n < 0 }
-    raise "negatives not allowed: #{negatives.join(', ')}" if negatives.any?
+    raise "negative numbers not allowed #{negatives.join(', ')}" if negatives.any?
 
     numbers_array.sum
     end
