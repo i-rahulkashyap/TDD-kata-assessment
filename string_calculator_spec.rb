@@ -67,6 +67,21 @@ RSpec.describe StringCalculator do
         end
     end
 
+    context 'when given a custom delimiter of length 1' do
+      it 'returns the sum of all numbers' do
+        calculator = StringCalculator.new
+        expect(calculator.add("//;\n1;2")).to eq(3)
+      end
+    end
+    
+    context 'when given a custom delimiter of length 2' do
+      it 'returns the sum of all numbers' do
+        calculator = StringCalculator.new
+        expect(calculator.add("//;;\n1;;2")).to eq(3)
+      end
+    end
+    
+
     context 'when given a custom delimiter of length 3' do
       it 'returns the sum of all numbers' do
         calculator = StringCalculator.new
